@@ -13,12 +13,13 @@ var title;
 
 var counter = 0;
 
-var allQuestions;
+var allQuestions,userAnswers;
 
 function preload(){
   backgroundImg = loadImage("images/Quiz.jpg");
   sound1 = loadSound("sounds/fail-buzzer-01.mp3");
   sound2 = loadSound("sounds/Piano_March.mp3");
+  sound3 = loadSound("sounds/Mouse Clicked.mp3");
 }
 
 function convertSeconds(s){
@@ -33,7 +34,7 @@ function setup() {
 
   title = createElement('h1');
   title.html(convertSeconds(counter));
-  title.position(displayWidth/2 - 50,50);
+  title.position(displayWidth/2 - 75,50);
 
   setInterval(timer,1000);
 
@@ -50,7 +51,7 @@ function timer(){
 function draw() {
   background(backgroundImg); 
 
-   form.play();
+  form.play();
 }
 
 function mousePressed(){

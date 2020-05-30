@@ -20,7 +20,6 @@ class Game{
             player.getCount();
             form = new Form;
             form.display();
-            
         }
     }
 }
