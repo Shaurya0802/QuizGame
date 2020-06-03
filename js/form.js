@@ -2,26 +2,30 @@ class Form{
     constructor(){
         this.input = createInput("Name");
         this.button = createButton("Play");
-        this.title = createElement('h1');
+        this.text = createElement('h2');
     }
 
     hide(){
         this.input.hide();
         this.button.hide();
+        this.text.hide();
     }
 
     display(){
-        this.title.html("Quiz Game");
-        this.title.position(displayWidth/2 - 110,10);
-        this.title.style("font-family","Comic Sans MS");
-
-        this.button.position(displayWidth/2 - 70,displayHeight/2 - 100);
+        this.button.position(displayWidth/2 - 40,displayHeight/2 - 30);
         
         this.button.style("font-family","Comic Sans MS");
-        this.button.style("background-color","#ffff00");
-        this.button.style("color","#0000ff");
+        this.button.style("background-color","#ffdb58");
+        this.button.style("color","brown");
 
-        this.input.position(displayWidth/2 - 70,displayHeight/2 - 140);
+        this.input.position(displayWidth/2 - 90,displayHeight/2 - 140);
+        this.input.style("background-color","#ffdb58");
+        this.input.style("color","brown");
+
+        this.text.html("Don't try to cheat. You're being looked at 🕵️‍♀️🕵️‍♀️👮‍♂️👮‍♂️.(Just joking 🤣🤣)");
+        this.text.position(displayWidth/2 - 300,displayHeight/2 - 110);
+        this.text.style("background-color","#ffdb58");
+        this.text.style("color","brown");
         
         this.button.mousePressed(()=>{
             this.button.hide();

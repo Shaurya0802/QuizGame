@@ -26,18 +26,19 @@ var questionNum = 1;
 function preload(){
   backgroundImg = loadImage("images/Quiz.jpg");
   sound1 = loadSound("sounds/Mouse Clicked.mp3");
+  sound2 = loadSound("sounds/Surprise-music-sound-effect.mp3");
+  sound3 = loadSound("sounds/Wrong-answer-sound-effect.mp3");
+  sound4 = loadSound("sounds/happy sound.mp3");
 }
 
 function setup() {
   canvas = createCanvas(displayWidth,displayHeight);
   database = firebase.database();
 
-  title = createElement('h1');
-  title.html(convertSeconds(counter));
-  title.position(displayWidth/2 - 75,50);
-
   game = new Game;
   game.start();
+
+  sound4.play();
 }
 
 function draw() {
@@ -45,17 +46,24 @@ function draw() {
 
   if(gameState === 1){
     game.play();
+    fill(100,0,255);
+    strokeWeight(7);
+    stroke(0);
+    textSize(40);
+    textStyle(BOLD);
+    textFont("Comic Sans MS");
+    text("Score : " + player.score,displayWidth/2 + 200,displayHeight/2 - 250);
   }
 
   if(gameState === 2){
     game.end();
   }
 
-  fill(100,0,255);
+  fill("#ffdb58");
   strokeWeight(7);
-  stroke(0);
-  textSize(40);
+  stroke(255,0,0);
+  textSize(50);
   textStyle(BOLD);
   textFont("Comic Sans MS");
-  text("Score : " + player.score,displayWidth/2 + 200,displayHeight/2 - 300);
+  text("Incredibly Sensible Quiz",displayWidth/2 - 300,50);
 }
