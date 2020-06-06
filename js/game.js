@@ -230,7 +230,7 @@ class Game{
                 this.feedback.style("color","orange");
             }else if(player.score === 100){
                 this.feedback.html("Incredible!! 👨‍🎓👩‍🎓👨‍🎓👩‍🎓✨✨🎊🎊🎉🎉");
-                this.feedback.position(displayWidth/2 - 380,displayHeight/2 - 150);
+                this.feedback.position(displayWidth/2 - 400,displayHeight/2 - 150);
                 this.feedback.style("font-family","Comic Sans MS");
                 this.feedback.style("background-color","#000080");
                 this.feedback.style("color","orange");
