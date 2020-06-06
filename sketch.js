@@ -41,7 +41,7 @@ function setup() {
   game.start();
 
   slider = createSlider(0,1,0.5,0.01);
-  slider.position(50,80);
+  slider.position(50,80);;
 
   sound4.play();
 }

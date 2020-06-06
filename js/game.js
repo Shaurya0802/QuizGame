@@ -58,6 +58,9 @@ class Game{
             display_position += 100;
             this.puzzle1.html(question.ques);
             this.puzzle1.position(displayWidth/2 - 200, displayHeight/2 - 200);
+            this.puzzle1.style("background-color","black");
+            this.puzzle1.style("color","white");
+            this.puzzle1.style("font-family","Comic Sans MS");
 
             this.option1.html(question.option1);
             this.option2.html(question.option2);
@@ -68,9 +71,6 @@ class Game{
             this.option2.position(displayWidth/2 - 150,displayHeight/2 - 80);
             this.option3.position(displayWidth/2 - 150,displayHeight/2 - 50);
             this.option4.position(displayWidth/2 - 150,displayHeight/2 - 20);
-
-            this.puzzle1.style("font-family","Comic Sans MS");
-            this.puzzle1.style("color","black");
 
             this.option1.style("font-family","Comic Sans MS");
             this.option1.style("background-color","#ffdb58");
@@ -199,7 +199,7 @@ class Game{
             this.finalScore2.style("color","orange");
 
             if(player.score <= 20){
-                this.feedback.html("Better luck next time 😢😢😩😩");
+                this.feedback.html("Better luck next time 😩😩");
                 this.feedback.position(displayWidth/2 - 260,displayHeight/2 - 150);
                 this.feedback.style("font-family","Comic Sans MS");
                 this.feedback.style("background-color","#000080");
@@ -222,9 +222,15 @@ class Game{
                 this.feedback.style("font-family","Comic Sans MS");
                 this.feedback.style("background-color","#000080");
                 this.feedback.style("color","orange");
-            }else if(player.score > 80){
-                this.feedback.html("Hats Off ✔✔🎂🎂😱😱🤗🤗🤐🤐👏👏✌✌🤩🤩");
+            }else if(player.score <= 80){
+                this.feedback.html("Hats Off ✔✔🎂🎂😱😱🤗🤗🤐🤐👏👏✌✌");
                 this.feedback.position(displayWidth/2 - 400,displayHeight/2 - 150);
+                this.feedback.style("font-family","Comic Sans MS");
+                this.feedback.style("background-color","#000080");
+                this.feedback.style("color","orange");
+            }else if(player.score === 100){
+                this.feedback.html("Incredible!! 👨‍🎓👩‍🎓👨‍🎓👩‍🎓✨✨🎊🎊🎉🎉");
+                this.feedback.position(displayWidth/2 - 380,displayHeight/2 - 150);
                 this.feedback.style("font-family","Comic Sans MS");
                 this.feedback.style("background-color","#000080");
                 this.feedback.style("color","orange");
