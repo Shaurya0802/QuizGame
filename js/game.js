@@ -15,6 +15,8 @@ class Game{
         this.finalScore2 = createElement('h1');
 
         this.feedback = createElement('h1');
+
+        this.number = createElement('h2');
     }
 
     getState(){
@@ -88,6 +90,12 @@ class Game{
             this.option4.style("background-color","#ffdb58");
             this.option4.style("color","#0000ff");
 
+            this.number.html("Q." + no + ":");
+            this.number.position(displayWidth/2 - 275,displayHeight/2 - 200);
+            this.number.style("background-color","black");
+            this.number.style("color","white");
+            this.number.style("font-family","Comic Sans MS");
+
             this.option1.mousePressed(()=>{
                 this.option2.hide();
                 this.option3.hide();
@@ -125,8 +133,19 @@ class Game{
             this.nextButton.style("font-family","Comic Sans MS");
             this.nextButton.style("background-color","#ffdb58");
             this.nextButton.style("color","#0000ff");
+
+            if(counter === 15){
+                counter = -1;
+                questionNum = questionNum + 1;
+
+                sound3.play();
+            }
             
             this.nextButton.mousePressed(()=>{
+                counter = -1;
+
+                no++;
+
                 questionNum = questionNum + 1;
                 sound1.play();
 
@@ -136,12 +155,6 @@ class Game{
                 this.option4.show();
 
                 if(userAnswers === question.Answer){
-                    this.correct.html("Correct Answer!!");
-                    this.correct.position(displayWidth/2,displayHeight/2-100);
-                                
-                    this.correct.style("font-family","Comic Sans MS");
-                    this.correct.style("color","black");
-    
                     score = score + 10;
 
                     sound2.play();
@@ -151,12 +164,6 @@ class Game{
                 }
     
                 if(userAnswers !== question.Answer){
-                    this.wrong.html("Wrong Answer");
-                    this.wrong.position(displayWidth/2,displayHeight/2-100);
-                                
-                    this.wrong.style("font-family","Comic Sans MS");
-                    this.wrong.style("color","black");
-
                     sound3.play();
                 }
 
@@ -173,11 +180,13 @@ class Game{
 
     end(){
         this.nextButton.mousePressed(()=>{
+            counter = counter - 1;
             this.puzzle1.hide();
             this.option1.hide();
             this.option2.hide();
             this.option3.hide();
             this.option4.hide();
+            this.number.hide();
 
             this.nextButton.hide();
 
@@ -198,37 +207,37 @@ class Game{
             this.finalScore2.style("background-color","#000080");
             this.finalScore2.style("color","orange");
 
-            if(player.score <= 20){
+            if(player.score <= 30){
                 this.feedback.html("Better luck next time 😩😩");
                 this.feedback.position(displayWidth/2 - 260,displayHeight/2 - 150);
                 this.feedback.style("font-family","Comic Sans MS");
                 this.feedback.style("background-color","#000080");
                 this.feedback.style("color","orange");
-            }else if(player.score <= 40){
-                this.feedback.html("Satisfactory 😐🥱");
-                this.feedback.position(displayWidth/2 - 300,displayHeight/2 - 150);
-                this.feedback.style("font-family","Comic Sans MS");
-                this.feedback.style("background-color","#000080");
-                this.feedback.style("color","orange");
             }else if(player.score <= 60){
-                this.feedback.html("Well Done 👍👍👌👌");
-                this.feedback.position(displayWidth/2 - 300,displayHeight/2 - 150);
+                this.feedback.html("Satisfactory 😐🥱");
+                this.feedback.position(displayWidth/2 - 380,displayHeight/2 - 150);
                 this.feedback.style("font-family","Comic Sans MS");
                 this.feedback.style("background-color","#000080");
                 this.feedback.style("color","orange");
-            }else if(player.score <= 80){
+            }else if(player.score <= 90){
+                this.feedback.html("Well Done 👍👍👌👌");
+                this.feedback.position(displayWidth/2 - 170,displayHeight/2 - 150);
+                this.feedback.style("font-family","Comic Sans MS");
+                this.feedback.style("background-color","#000080");
+                this.feedback.style("color","orange");
+            }else if(player.score <= 120){
                 this.feedback.html("Amazing! 🥳🤩😊😎");
                 this.feedback.position(displayWidth/2 - 300,displayHeight/2 - 150);
                 this.feedback.style("font-family","Comic Sans MS");
                 this.feedback.style("background-color","#000080");
                 this.feedback.style("color","orange");
-            }else if(player.score <= 80){
+            }else if(player.score <= 150){
                 this.feedback.html("Hats Off ✔✔🎂🎂😱😱🤗🤗🤐🤐👏👏✌✌");
                 this.feedback.position(displayWidth/2 - 400,displayHeight/2 - 150);
                 this.feedback.style("font-family","Comic Sans MS");
                 this.feedback.style("background-color","#000080");
                 this.feedback.style("color","orange");
-            }else if(player.score === 100){
+            }else if(player.score === 180){
                 this.feedback.html("Incredible!! 👨‍🎓👩‍🎓👨‍🎓👩‍🎓✨✨🎊🎊🎉🎉");
                 this.feedback.position(displayWidth/2 - 400,displayHeight/2 - 150);
                 this.feedback.style("font-family","Comic Sans MS");

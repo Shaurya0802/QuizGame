@@ -23,7 +23,7 @@ class Form{
         this.input.style("color","brown");
 
         this.text.html("Don't try to cheat. You're being looked at 🕵️‍♀️🕵️‍♀️👮‍♂️👮‍♂️.(Just joking 🤣🤣)");
-        this.text.position(displayWidth/2 - 350,displayHeight/2 - 110);
+        this.text.position(displayWidth/2 - 370,displayHeight/2 - 110);
         this.text.style("background-color","#ffdb58");
         this.text.style("color","brown");
         
@@ -43,6 +43,7 @@ class Form{
             gameState = 1;
 
             player.index += 1;
+
         }) 
     }
 }

@@ -21,9 +21,15 @@ var Score;
 
 var question;
 
-var questionNum = 0;
+var questionNum = -8;
+
+var no = 1;
 
 var slider;
+
+var timer;
+var timeLeft = 15;
+var counter = 0;
 
 function preload(){
   backgroundImg = loadImage("images/Quiz.jpg");
@@ -44,6 +50,21 @@ function setup() {
   slider.position(50,80);;
 
   sound4.play();
+
+  var timer = createElement('h1');
+  timer.html(timeLeft - counter);
+  timer.position(displayWidth/2 - 40,70);
+  timer.style("font-family","Comic Sans MS");
+  timer.style("color","#0000ff");
+
+  function timeIt(){
+    if(gameState === 1){
+      counter++;
+      timer.html(timeLeft - counter);
+    }
+  }
+
+  setInterval(timeIt,1000);
 }
 
 function draw() {
@@ -80,6 +101,8 @@ function draw() {
   textFont("Comic Sans MS");
   text("Control the song's \n sound 🎶🎶",50,50);
 
-
+  sound1.setVolume(slider.value());
+  sound2.setVolume(slider.value());
+  sound3.setVolume(slider.value());
   sound4.setVolume(slider.value());
 }
