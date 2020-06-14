@@ -40,20 +40,20 @@ function preload(){
 }
 
 function setup() {
-  canvas = createCanvas(displayWidth,displayHeight);
+  canvas = createCanvas(windowWidth,windowHeight);
   database = firebase.database();
 
   game = new Game;
   game.start();
 
-  slider = createSlider(0,1,0.5,0.01);
+  slider = createSlider(0,1,0.5,0.1);
   slider.position(50,80);;
 
   sound4.play();
 
   var timer = createElement('h1');
   timer.html(timeLeft - counter);
-  timer.position(displayWidth/2 - 40,70);
+  timer.position(windowWidth/2 - 40,70);
   timer.style("font-family","Comic Sans MS");
   timer.style("color","#0000ff");
 
@@ -78,7 +78,7 @@ function draw() {
     textSize(40);
     textStyle(BOLD);
     textFont("Comic Sans MS");
-    text("Score : " + player.score,displayWidth/2 + 200,displayHeight/2 - 250);
+    text("Score : " + player.score,windowWidth/2 + 250,windowHeight/2 - 200);
   }
 
   if(gameState === 2){
@@ -91,7 +91,7 @@ function draw() {
   textSize(50);
   textStyle(BOLD);
   textFont("Comic Sans MS");
-  text("Incredibly Sensible Quiz",displayWidth/2 - 300,50);
+  text("Incredibly Sensible Quiz",windowWidth/2 - 300,50);
 
   fill("#ffdb58");
   strokeWeight(3);
